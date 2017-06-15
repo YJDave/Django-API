@@ -6,6 +6,10 @@ from rest_framework.generics import (
     DestroyAPIView
     )
 #authentication permissions
+from rest_framework.permissions import (
+    IsAuthenticated,
+    IsAdminUser
+)
 
 from home.models import IPdata
 from home.serializers import (
@@ -18,22 +22,25 @@ from home.serializers import (
 class IPCreateAPIView(CreateAPIView):
     queryset = IPdata.objects.all()
     serializer_class = IPCreateUpdateSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
 #home/specific_object/delete
 class IPDeleteAPIView(DestroyAPIView):
     queryset = IPdata.objects.all()
     serializer_class = IPDetailSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
 class IPUpdateAPIView(RetrieveUpdateAPIView):
     queryset = IPdata.objects.all()
     serializer_class = IPCreateUpdateSerializer
+    permission_classes = [IsAdminUser, IsAuthenticated]
 
 
 #home/?country=country_name
 class IPListAPIView(ListAPIView):
 
     serializer_class = IPListSerializer
-
+    # permission_class = [AllowAny]
     def get_queryset(self):
 
         queryset = IPdata.objects.all()
@@ -45,7 +52,7 @@ class IPListAPIView(ListAPIView):
 #home/country_name
 class IPCountryListAPIView(ListAPIView):
     serializer_class = IPListSerializer
-
+    #permission_class = [AllowAny]
     def get_queryset(self):
         country_name = self.kwargs['country']
         return IPdata.objects.filter(country__iexact=country_name)
@@ -53,9 +60,9 @@ class IPCountryListAPIView(ListAPIView):
     #   return IPdata.objects.filter(country__icontains=country_name)
 
 #RetrieveAPIView only return one object
-#To retrieve object using primary key
-#home/specific_object
+#To retrieve object using primary key (Here IP address is primary key)
+#home/specific_object's_ip_address
 class IPDetailList(RetrieveAPIView):
     queryset = IPdata.objects.all()
     serializer_class = IPDetailSerializer
-    #lookup_field = 'ip_address'
+    # permission_class = [AllowAny]

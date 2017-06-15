@@ -13,7 +13,9 @@ class IPdata(models.Model):
     port_no = models.PositiveIntegerField()
     anonymity = models.CharField(max_length=50, default="Low")
     last_modified = models.DateTimeField(auto_now=True)
-    HTTPS = models.CharField(max_length=3, default="No")
+    HTTPS = models.CharField(max_length=13, default="Not Specified", choices=(("Yes", "HTTPS supportable"),
+                                                                  ("No", "HTTPS not supportable"),
+                                                                  ("Not Specified", "Not Specified")))
 
     def __str__(self):
         return self.ip_address + ' - ' +  self.country + ' - ' +  str(self.port_no) + ' - ' +  self.anonymity + ' - '\
