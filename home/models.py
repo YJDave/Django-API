@@ -6,7 +6,7 @@ from django.db import models
 class IPdata(models.Model):
 
     #id = models.AutoField(primary_key=True)
-    ip_address = models.GenericIPAddressField(protocol='both', unpack_ipv4=False)
+    ip_address = models.GenericIPAddressField(protocol='both', unpack_ipv4=False, primary_key=True)
     country = models.CharField(max_length=100)
     #values for PositiveSmallIntegerField is 0 to 32767
     #port limit is 65536 so
