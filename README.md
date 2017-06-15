@@ -14,7 +14,7 @@ Links are:
 4)LocalHost:8000/home?country=x          -->Returns All IP where country = x (Same as Above)                                               
 5)LocalHost:8000/admin/                  -->Admin Page
 6)LocalHost:8000/home/create/            -->To Create a New Object
-7)LocalHost:8000/home/x.x.x.x/edit/      -->To Edit Object which have IP Address = x.x.x.x
+7)LocalHost:8000/home/x.x.x.x/edit/      -->To Edit Object which have IP Address = x.x.x.x                                                 
 8)LocalHost:8000/home/x.x.x.x/delete/    -->To Delete Object which have IP Address = x.x.x.x
 
 NOTE : Last three Links(Edit, Delete, Create) can only access by Admin User.
