@@ -8,10 +8,10 @@ In home.serializer file include all different serializer.
 Results::
 Links are:
 
-1)LocalHost:8000/home/                   -->Returns List of all IP
-2)LocalHost:8000/home/x.x.x.x/           -->Returns Details of Specific IP
-3)LocalHost:8000/home/var_country/       -->Returns All IP where country = var_country
-4)LocalHost:8000/home?country=x          -->Returns All IP where country = x (Same as Above)
+1)LocalHost:8000/home/                   -->Returns List of all IP                                                                         
+2)LocalHost:8000/home/x.x.x.x/           -->Returns Details of Specific IP                                                                 
+3)LocalHost:8000/home/var_country/       -->Returns All IP where country = var_country                                                     
+4)LocalHost:8000/home?country=x          -->Returns All IP where country = x (Same as Above)                                               
 5)LocalHost:8000/admin/                  -->Admin Page
 6)LocalHost:8000/home/create/            -->To Create a New Object
 7)LocalHost:8000/home/x.x.x.x/edit/      -->To Edit Object which have IP Address = x.x.x.x
